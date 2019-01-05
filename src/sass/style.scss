@@ -857,14 +857,20 @@ img[src$="#full"] {
 .credits {
 	text-align: center;
 	font-size: 0.625em;
-	line-height: 1em;
+	line-height: 1.3em;
 	padding: 1.1em 0;
 	overflow: auto;
 	opacity: 0.5;
 }
 .credits a {
 	color: inherit;
+	border-bottom: 1px solid $primary-color;
 }
+.credits a:hover,
+.credits a:focus {
+	color: $primary-color;
+}
+
 .credits span {
 	display: block;
 }
