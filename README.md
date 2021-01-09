@@ -20,6 +20,12 @@ Build Grunt project:
 
 	grunt build
 
+Release Grunt project:
+
+	grunt release
+
+This copies a clean theme into a folder "release". This folder can be zip'd and uploaded to Ghost.
+
 ## Copyright & License
 
 This theme is based on Attila:

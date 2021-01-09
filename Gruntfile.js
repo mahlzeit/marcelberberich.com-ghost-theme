@@ -28,12 +28,33 @@ module.exports = function(grunt) {
                     cwd: 'src/font/',
                     expand: true
                 }]
-	        }
+            },
+            release: {
+                files: [
+                    {
+                        src: 'package.json',
+                        dest: 'release/package.json'
+                    },
+                    {
+                        src: '*.hbs',
+                        dest: 'release/'
+                    },
+                    {
+                        src: 'partials/*.hbs',
+                        dest: 'release/'
+                    },
+                    {
+                        src: ['assets/**/*', '!assets/sass/**/*'],
+                        dest: 'release/'
+                    }
+                ]
+            }
         },
         clean: {
             dev: ['dev'],
             dist: ['dist'],
-            all: ['dev', 'dist']
+            release: ['release'],
+            all: ['dev', 'dist', 'release']
         },
         sass: {
             dev: {
@@ -95,6 +116,13 @@ module.exports = function(grunt) {
         'sass:dist',
         'postcss:dist',
         'copy:dist',
+        'uglify'
+    ]);
+    grunt.registerTask('release', [
+        'sass:dist',
+        'postcss:dist',
+        'copy:dist',
+        'copy:release',
         'uglify'
     ]);
     grunt.registerTask('default', [
